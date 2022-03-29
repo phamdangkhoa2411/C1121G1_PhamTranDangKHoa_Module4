@@ -1,10 +1,11 @@
 package com.service.impl;
 
 import com.service.IDictionaryService;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@Service
 public class DictionaryImpl implements IDictionaryService {
 
     @Override
