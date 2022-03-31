@@ -1,15 +1,15 @@
 package mailbox.model;
 
 public class MailBox {
-    private  String languages;
-   private int pageSize;
-   private boolean spmasFillter;
-   private String singnature;
+    private String languages;
+    private String pageSize;
+    private boolean spmasFillter;
+    private String singnature;
 
     public MailBox() {
     }
 
-    public MailBox(String languages, int pageSize, boolean spmasFillter, String singnature) {
+    public MailBox(String languages, String pageSize, boolean spmasFillter, String singnature) {
         this.languages = languages;
         this.pageSize = pageSize;
         this.spmasFillter = spmasFillter;
@@ -24,11 +24,11 @@ public class MailBox {
         this.languages = languages;
     }
 
-    public int getPageSize() {
+    public String getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(String pageSize) {
         this.pageSize = pageSize;
     }
 
