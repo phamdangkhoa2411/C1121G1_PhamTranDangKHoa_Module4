@@ -5,6 +5,7 @@
       <change afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../bai_tap/Canculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/Canculator/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/java/cg/wbd/grandemonstration/servlet/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/quan_ly_danh_sach_khach_hang/customer-management/src/main/java/cg/wbd/grandemonstration/servlet/CustomerServlet.java" afterDir="false" />
@@ -41,6 +42,7 @@
       <option name="presentableId" value="Default" />
       <updated>1648644239868</updated>
       <workItem from="1648644241325" duration="49000" />
+      <workItem from="1648645249944" duration="69000" />
     </task>
     <servers />
   </component>

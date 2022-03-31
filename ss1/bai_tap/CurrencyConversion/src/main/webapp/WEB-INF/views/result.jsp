@@ -20,9 +20,15 @@
 <h3 class="form-label"  > DOLA to VND:  </h3>
     <br>
    <td > ${vnd}</td>
-
     </tr>
 </div>
+    <div class="col-lg-6 m-lg-auto">
+        <tr >
+            <h3 class="form-label"  > VND TO DOLA:  </h3>
+            <br>
+            <td > ${dola}</td>
+        </tr>
+    </div>
 </table>
 </body>
 </html>

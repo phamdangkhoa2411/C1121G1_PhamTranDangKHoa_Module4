@@ -17,7 +17,7 @@
     <input type="text" name="search" placeholder="Enter your word">
     <input type="submit" id = "submit" value="search">
 </form>
-<p>Kết quả bạn cần tìm là : ${result}</p>
+<p>Kết quả bạn cần tìm là : ${result} </p>
 </body>
 </body>
 </html>
