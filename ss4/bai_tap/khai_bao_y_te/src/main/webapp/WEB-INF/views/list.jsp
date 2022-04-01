@@ -15,7 +15,7 @@
 <body>
 <h1 style="text-align: center; color: green">${message}</h1>
 <h2>
-    ${toKhai.toString()}
+    ${list.toString()}
 </h2>
 </body>
 </html>
