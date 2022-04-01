@@ -10,7 +10,7 @@
 <head>
     <title>Result</title>
 </head>
-<center>
+
     <body>
     <h2>Result</h2>
     <table>
@@ -33,5 +33,5 @@
     </table>
     <a href="/home/setting">back to setting</a>
     </body>
-</center>
+
 </html>

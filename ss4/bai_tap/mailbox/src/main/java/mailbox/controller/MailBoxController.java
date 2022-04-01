@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/home")
+
 public class MailBoxController {
     @RequestMapping(value = "/setting", method = RequestMethod.GET)
     public ModelAndView setting() {
