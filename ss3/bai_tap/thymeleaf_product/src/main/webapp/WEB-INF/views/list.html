@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product</h3>
+<p>
+    <a th:href="@{/product/create}">
+        Add new product
+    </a>
+
+</p>
+<form th:action="@{/product}">
+    Filter: <input type="text" name="productList" id="productList" size="50" th:value="${productList}" required />
+    &nbsp;
+    <input type="submit" value="Search" />
+    &nbsp;
+    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+</form>
+
+<table id="products">
+    <thead>
+    <tr>
+        <th>mã</th>
+        <th>tên</th>
+        <th>giá</th>
+        <th>mô tả</th>
+        <th>nhà sản xuất</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${products}">
+        <td th:text="${row.ma}"></td>
+        <td th:text="${row.ten}"></td>
+        <td th:text="${row.gia}"></td>
+        <td th:text="${row.mota}"></td>
+        <td th:text="${row.nhaSanXuat}"></td>
+
+
+        <td><a th:href="@{/product/{ma}/edit(ma=${row.ma})}">edit</a></td>
+        <td><a th:href="@{/product/{ma}/delete(ma=${row.ma})}">delete</a></td>
+        <td><a th:href="@{/product/{ma}/view(ma=${row.ma})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+    <div class="notify">
+        <div th:if="${smg}">
+            <span th:text="${smg}"></span>
+        </div>
+</div>
+</body>
+</html>
