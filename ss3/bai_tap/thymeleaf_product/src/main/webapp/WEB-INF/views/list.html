@@ -10,7 +10,7 @@
     </a>
 
 </p>
-<form th:action="@{/search}">
+<form th:action="@{/search}" method="get">
     Filter: <input type="text" name="productList" id="productList" size="50" th:value="${searchByName}" required />
     &nbsp;
     <input type="submit" value="Search" />
