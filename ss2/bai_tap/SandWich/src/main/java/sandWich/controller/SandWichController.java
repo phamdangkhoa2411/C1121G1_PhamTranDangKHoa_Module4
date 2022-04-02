@@ -12,15 +12,23 @@ import java.util.Map;
 public class SandWichController {
 
     @GetMapping("/SandWichCondiments" )
+
         String sandWichCondiments(){
       return "SandWichCondiments";
     }
+
     @PostMapping("/SandWichCondiments")
+
     public String list(@RequestParam(required = false) String lettuce , @RequestParam(required = false) String tomato, @RequestParam(required = false) String mustard, @RequestParam(required = false) String sprouts , Model model){
+
         model.addAttribute("lettuce",lettuce);
+
         model.addAttribute("tomato",tomato);
+
         model.addAttribute("mustard",mustard);
+
         model.addAttribute("sprouts",sprouts);
+
         return "list";
     }
 

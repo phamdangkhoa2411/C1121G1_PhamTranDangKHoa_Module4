@@ -15,12 +15,20 @@
 <div>
     <form method="post">
         <input type="text" name="number1" placeholder="number1">
+
         <input type="text" name="number2" placeholder="number2">
-        <br>
-        <input type="submit" value="(+)Addition" name="result">
-        <input type="submit" value="(-)Sudtraction" name="result">
-        <input type="submit" value="(x)Multiplication" name="result">
-        <input type="submit" value="(/)Division" name="result">
+
+        <br><br>
+
+        <input type="submit" value="+" name="result">
+
+        <input type="submit" value="-" name="result">
+
+        <input type="submit" value="x" name="result">
+
+        <input type="submit" value="/" name="result">
+
+<%--       lúc mới tải trang ${total nhận giá trị 0.0} --%>
         <h2>Result  : ${total} </h2>
     </form>
 </div>

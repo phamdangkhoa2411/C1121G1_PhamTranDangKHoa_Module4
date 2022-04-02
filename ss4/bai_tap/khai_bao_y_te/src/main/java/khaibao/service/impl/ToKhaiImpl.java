@@ -19,6 +19,7 @@ public class ToKhaiImpl implements IToKhaiService {
 
     @Override
     public void create(ToKhai toKhai) {
+
         toKhais.add(toKhai);
     }
 

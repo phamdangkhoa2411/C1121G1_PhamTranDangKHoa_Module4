@@ -13,7 +13,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1 style="text-align: center; color: green">${message}</h1>
+<h1 style="text-align: center; color: blue">${smg}</h1>
 <h2>
     ${list.toString()}
 </h2>

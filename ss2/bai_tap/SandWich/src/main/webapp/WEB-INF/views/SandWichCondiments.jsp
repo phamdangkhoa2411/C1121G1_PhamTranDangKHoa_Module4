@@ -13,15 +13,19 @@
 <body>
 <h1>Sandwich Condiment</h1>
 <form method="post">
+
     <div>
         <input name="lettuce" type="checkbox" value="lettuce"><label>Lettuce</label>
     </div>
+
     <div>
         <input name="tomato" type="checkbox" value="tomato"><label>Tomato</label>
     </div>
+
     <div>
         <input name="mustard" type="checkbox" value="mustard"><label>Mustard</label>
     </div>
+
     <div>
         <input name="sprouts" type="checkbox" value="sprouts"><label>Sprouts</label>
     </div>

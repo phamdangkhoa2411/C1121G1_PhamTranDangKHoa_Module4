@@ -9,28 +9,38 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CanculatorController {
     @GetMapping("/list")
-    public String canculator() {
+
+    public String canculator()
+    {
         return "list";
     }
 
     @PostMapping("/list")
+
     public String resut(@RequestParam String result, @RequestParam Double number1, @RequestParam Double number2, Model model) {
+
         Double total = 0.0;
+
         switch (result) {
-            case "(+)Addition":
+            case "+":
                 total = number1 + number2;
                 break;
-            case "(-)Sudtraction":
+
+            case "-":
                 total = number1-number2;
                 break;
-            case "(x)Multiplication":
+
+            case "x":
                 total=number1*number2;
                 break;
-            case "(/)Division":
+
+            case "/":
                 total=number1/number2;
                 break;
         }
+
         model.addAttribute("total",total);
+
         return "list";
     }
 
