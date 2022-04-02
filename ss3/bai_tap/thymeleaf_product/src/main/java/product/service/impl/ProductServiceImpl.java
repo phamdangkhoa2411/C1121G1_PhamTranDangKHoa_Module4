@@ -47,6 +47,7 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Product> findByName(String searchName) {
+        List<>
         return null;
     }
 }
