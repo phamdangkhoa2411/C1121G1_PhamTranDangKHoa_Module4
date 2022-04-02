@@ -73,7 +73,7 @@ public class ProductController {
 
         model.addAttribute("productList",productList);
 
-        return "search";
+        return "list";
 
     }
 }
