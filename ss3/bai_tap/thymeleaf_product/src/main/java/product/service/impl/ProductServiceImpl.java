@@ -47,7 +47,16 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Product> findByName(String searchName) {
-        List<>
-        return null;
+        List<Product> products = this.findAll();
+        List<Product> productResult = new ArrayList<>();
+        String productName;
+        searchName= searchName .toLowerCase();
+        for (Product product : products) {
+            productName = product.getTen().toLowerCase();
+            if (productName.contains(searchName)) {
+                productResult.add(product);
+            }
+        }
+        return productResult;
     }
 }
