@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Product</h3>
+<p>
+    <a th:href="@{/product/create}">
+        Add new product
+    </a>
+
+</p>
+<form  action="/product/search" method="post" align="left">
+    <button  type="submit">Search</button>
+    <input type="text" name="name" placeholder="Name product" >
+</form>
+<table id="products">
+    <thead>
+    <tr>
+        <th>mã</th>
+        <th>tên</th>
+        <th>giá</th>
+        <th>mô tả</th>
+        <th>nhà sản xuất</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${products}">
+        <td th:text="${row.id}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.price}"></td>
+        <td th:text="${row.description}"></td>
+        <td th:text="${row.manufacturer}"></td>
+
+
+        <td><a th:href="@{/product/{ma}/edit(ma=${row.id})}">edit</a></td>
+        <td><a th:href="@{/product/{ma}/delete(ma=${row.id})}">delete</a></td>
+        <td><a th:href="@{/product/{ma}/view(ma=${row.id})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<div class="notify">
+    <div th:if="${su success}">
+        <span th:text="${success}"></span>
+    </div>
+    <div class="notify">
+        <div th:if="${smg}">
+            <span th:text="${smg}"></span>
+        </div>
+</div>
+</body>
+</html>
