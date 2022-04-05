@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<h3>Blog</h3>
+<p>
+    <a th:href="@{/blog/create}">
+        Add new blog
+    </a>
+
+</p>
+
+<table id="blogs">
+    <thead>
+    <tr>
+        <th>mã</th>
+        <th>Người viết</th>
+        <th>nội dung</th>
+        <th>tóm tắt</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${blogList}">
+        <td th:text="${row.id}"></td>
+        <td th:text="${row.writer}"></td>
+        <td th:text="${row.content}"></td>
+        <td th:text="${row.summary}"></td>
+
+
+        <td><a th:href="@{/blog/{id}/edit(id=${row.id})}">edit</a></td>
+        <td><a th:href="@{/blog/{id}/delete(id=${row.id})}">delete</a></td>
+        <td><a th:href="@{/blog/{id}/view(id=${row.id})}">view</a></td>
+
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+    <div class="notify">
+        <div th:if="${smg}">
+            <span th:text="${smg}"></span>
+        </div>
+    </div>
+</body>
+</html>

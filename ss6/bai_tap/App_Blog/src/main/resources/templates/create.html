@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h3>Add Product</h3>
+<p>
+    <a th:href="@{/blog}">
+        Back to product list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/blog/save}" th:object="${blog}"
+          method="POST" novalidate="novalidate">
+
+        <div>
+            <label>Người viết</label>
+            <input type="text" th:field="*{writer}"/>
+        </div>
+        <div>
+            <label>Nội Dung</label>
+            <input type="text" th:field="*{content}"/>
+        </div>
+        <div>
+            <label>Tóm Tắc</label>
+            <input type="text" th:field="*{summary}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
