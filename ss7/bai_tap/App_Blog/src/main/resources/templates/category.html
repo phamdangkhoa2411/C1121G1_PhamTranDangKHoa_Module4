@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 style="color: yellow" th:text="${title}"></h1>
+<br>
+<a th:href="@{/blog}">Back to blog</a>
+<br>
+<table border="1">
+    <tr>
+        <th>mã</th>
+        <th>Người viết</th>
+        <th>nội dung</th>
+        <th>tóm tắt</th>
+        <th>category</th>
+    </tr>
+    <tr th:each="row ,loop : ${blogList}">
+        <td th:text="${loop.count}"></td>
+        <td th:text="${row.writer}"></a></td>
+        <td th:text="${row.content}"></td>
+        <td th:text="${row.summary}"></td>
+        <td th:text="${row.category.name}"></td>
+
+    </tr>
+</table>
+
+
+</body>
+</html>

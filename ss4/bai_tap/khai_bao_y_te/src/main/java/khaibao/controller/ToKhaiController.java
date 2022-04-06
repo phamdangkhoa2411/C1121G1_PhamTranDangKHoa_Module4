@@ -22,15 +22,21 @@ public class ToKhaiController {
     public ModelAndView list(){
         return new ModelAndView("/list","list", toKhaiService.list());
     }
+
     @GetMapping("/create")
     public String form(Model model){
+
         ToKhai toKhai=new ToKhai();
+
         model.addAttribute("thongTinDiLaiList",new String[] {"Tàu bay","Tàu thuyền","Ô tô"});
         model.addAttribute("toKhai",toKhai);
+
         return "create";
     }
+
     @PostMapping("/created")
     public String create(@ModelAttribute ToKhai toKhai, RedirectAttributes redirectAttributes){
+
         toKhaiService.create(toKhai);
         redirectAttributes.addFlashAttribute("smg","Thêm thành công");
         return "redirect:/list";
