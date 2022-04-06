@@ -66,14 +66,10 @@ public class ProductController {
         model.addAttribute("product",iProductService.findById(ma));
         return "/view";
 }
-    @GetMapping("/search")
-    public String searchProduct(@RequestParam("searchByName") String searchByName, Model model){
-
-            List<Product> productList = iProductService.findByName(searchByName);
-
-        model.addAttribute("productList",productList);
-
-        return "list";
-
+    @PostMapping("/search")
+    public String search(@RequestParam String ten, Model model){
+        List<Product> productList = iProductService.search(ten);
+        model.addAttribute("products",productList);
+        return "/list";
     }
 }

@@ -15,7 +15,7 @@ public interface IProductService {
 
     void remove(int ma);
 
-    List<Product> findByName(String searchName);
+ List<Product> search(String name);
 
 }
 

@@ -10,12 +10,9 @@
     </a>
 
 </p>
-<form th:action="@{/search}" method="get">
-    Filter: <input type="text" name="productList" id="productList" size="50" th:value="${searchByName}" required />
-    &nbsp;
-    <input type="submit" value="Search" />
-    &nbsp;
-    <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+<form action="/product/search" method="post" align="right">
+    <button type="submit">Search</button>
+    <input type="text" name="ten" placeholder="ten product" >
 </form>
 
 <table id="products">
