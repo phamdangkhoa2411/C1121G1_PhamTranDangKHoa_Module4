@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface IBlogRepository extends JpaRepository<Blog,Integer> {
- Page<Blog> findAllByWriterContaining(String keyword , Pageable pageable);
- List<Blog>findAllCategoryById(Integer id);
+public interface IBlogRepository extends JpaRepository<Blog, Integer> {
+    Page<Blog> findAllByWriterContaining(String keyword, Pageable pageable);
+
+    List<Blog> findAllByCategory_Id(Integer id);
 
 }

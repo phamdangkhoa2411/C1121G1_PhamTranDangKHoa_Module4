@@ -29,7 +29,7 @@ public class BlogController {
     ICategoryService iCategoryService;
 
     @GetMapping("")
-    public String list(@RequestParam Optional<String> keyword, Model model, @PageableDefault(value = 3)Pageable pageable ) {
+    public String list(@RequestParam Optional<String> keyword, Model model, @PageableDefault(value = 2)Pageable pageable ) {
         Page<Blog> blogList;
         if(keyword.isPresent()){
             blogList = iBlogService.findByName(keyword.get(), pageable);
