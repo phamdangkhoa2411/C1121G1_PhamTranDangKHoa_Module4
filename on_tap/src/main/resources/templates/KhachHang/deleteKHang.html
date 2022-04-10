@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Remove Khách Hàng</h3>
+<p>
+    <a th:href="@{/khachhang}">
+        Back to  Khách Hàng list
+    </a>
+</p>
+<div id="form">
+    <form action="#" th:action="@{/khachhang/deleteKHang}" th:object="${khachhang}"
+          method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{idKhachHang}"/>
+        <div>
+            <label>Tên Khách hàng</label>
+            <input type="text" th:field="*{ten}"/>
+        </div>
+        <input type="submit" value="Remove"/>
+    </form>
+</div>
+</body>
+</html>

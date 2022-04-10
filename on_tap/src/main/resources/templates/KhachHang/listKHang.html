@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Khach hang</h3>
+<p>
+    <a th:href="@{/khachhang/createKHang}">
+        Add new khách hàng
+    </a>
+
+</p>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>mã khách hàng </th>
+        <th>tên khách hàng</th>
+        <th>Delete</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,loop : ${khachHangList}">
+        <td th:text="${row.idKhachHang}"></td>
+        <td th:text="${row.ten}"></td>
+        <td><a th:href="@{/khachhang/{idKhachHang}/deleteKHang(idKhachHang=${row.idKhachHang})}">delete</a></td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -12,7 +12,7 @@ public class User {
     private Integer id;
 
     private String firstName;
-    private String lastname;
+    private String lastName;
     private String phone;
 
     private Integer age;
@@ -37,12 +37,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhone() {

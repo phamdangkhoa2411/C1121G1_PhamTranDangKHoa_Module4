@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add Khách Hàng </h3>
+<p>
+    <a th:href="@{/khachhang}">
+        Back to Khách Hàng list
+    </a>
+</p>
+<div id="form">
+    <form th:object="${khachHangDto}"
+          method="POST">
+
+        <div>
+            <label>Tên Khách Hàng</label>
+            <input type="text" th:field="*{ten}"/>
+            <p style="color: red" th:errors="*{ten}"></p>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+</body>
+</html>

@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+<h1>List User</h1>
+<br>
+<a href="/create">Add New User</a>
+<table id="users">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Age</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.phone}"></td>
+        <td th:text="${user.age}"></td>
+        <td th:text="${user.email}"></td>
+    </tr>
+</table>
+<div>
+    <a th:if="${users.hasPrevious()}" th:href="@{/user(page=${users.number - 1})}">previous</a>
+    <span th:text="${users.number + 1}"></span> |
+    <span th:text="${users.totalPages}"></span>
+    <a th:if="${users.hasNext()}" th:href="@{/user(page=${users.number + 1})}">Next</a>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<div class="notify">
+    <div th:if="${smg}">
+        <span th:text="${smg}"></span>
+    </div>
+</div>
 </body>
 </html>

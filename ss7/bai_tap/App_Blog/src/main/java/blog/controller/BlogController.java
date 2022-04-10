@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -45,6 +45,7 @@ public class BlogController {
     @GetMapping("/create")
     public String create(Model model) {
         List<Category> categoryLs = iCategoryService.findAllCategory();
+
         model.addAttribute("blog", new Blog());
         model.addAttribute("categoryLs",categoryLs);
         return "/create";

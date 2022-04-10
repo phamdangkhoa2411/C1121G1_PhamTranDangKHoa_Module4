@@ -10,12 +10,12 @@ public class UserDto {
     private Integer id;
 
     @NotBlank
-    @Size(min = 5, max = 45)
+    @Size(min = 2, max = 45)
     private String firstName;
 
     @NotBlank
-    @Size(min = 5, max = 45)
-    private String lastname;
+    @Size(min = 1, max = 45)
+    private String lastName;
 
     @Pattern(regexp = "[0-9]{10}", message = "vui lòng nhập đúng định dạng")
     private String phone;
@@ -23,8 +23,9 @@ public class UserDto {
     @Min(value = 18,message = "phải trên 18 tuổi")
     private Integer age;
 
-    @NotBlank
-    @Email(message = "[a-z]@[a-z].com")
+
+    @Email(message = "vui lòng nhập đúng định dạng VD: abcxyz@gmail.com")
+//    @NotBlank
     private String Email;
 
     public UserDto() {
@@ -46,12 +47,12 @@ public class UserDto {
         this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhone() {
