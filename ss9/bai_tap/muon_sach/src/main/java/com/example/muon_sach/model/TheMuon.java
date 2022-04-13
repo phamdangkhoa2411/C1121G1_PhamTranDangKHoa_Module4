@@ -1,9 +1,23 @@
 package com.example.muon_sach.model;
 
+
+
+import javax.persistence.*;
+
+
+@Entity
 public class TheMuon {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idThe;
     private String tenNguoiMuon;
-    private String tenSach ;
+
+    @ManyToOne
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    private Sach sach;
+
+
 
     public TheMuon() {
     }
@@ -24,11 +38,14 @@ public class TheMuon {
         this.tenNguoiMuon = tenNguoiMuon;
     }
 
-    public String getTenSach() {
-        return tenSach;
+
+    public Sach getSach() {
+        return sach;
     }
 
-    public void setTenSach(String tenSach) {
-        this.tenSach = tenSach;
+    public void setSach(Sach sach) {
+        this.sach = sach;
     }
+
+
 }

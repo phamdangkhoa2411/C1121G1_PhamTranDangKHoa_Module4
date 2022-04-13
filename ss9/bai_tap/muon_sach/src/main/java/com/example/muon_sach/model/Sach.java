@@ -1,10 +1,24 @@
 package com.example.muon_sach.model;
 
+
+
+import javax.persistence.*;
+import java.util.Set;
+
+
+@Entity
 public class Sach {
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String tenSach;
     private String tacGia;
     private Integer soLuong;
+
+    @OneToMany(mappedBy = "sach",cascade = CascadeType.ALL)
+    private Set<TheMuon> theMuons;
 
     public Sach() {
     }
@@ -36,4 +50,17 @@ public class Sach {
     public void setSoLuong(Integer soLuong) {
         this.soLuong = soLuong;
     }
+
+    public Integer getSoLuong() {
+        return soLuong;
+    }
+
+    public Set<TheMuon> getTheMuons() {
+        return theMuons;
+    }
+
+    public void setTheMuons(Set<TheMuon> theMuons) {
+        this.theMuons = theMuons;
+    }
+
 }
