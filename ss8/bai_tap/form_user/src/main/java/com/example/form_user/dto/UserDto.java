@@ -1,10 +1,6 @@
 package com.example.form_user.dto;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class UserDto {
     private Integer id;
@@ -21,12 +17,14 @@ public class UserDto {
     private String phone;
 
     @Min(value = 18,message = "phải trên 18 tuổi")
+    @Max(value = 60,message = "quá tuỏio quy định")
+//    @NotBlank
     private Integer age;
 
 
-    @Email(message = "vui lòng nhập đúng định dạng VD: abcxyz@gmail.com")
-//    @NotBlank
-    private String Email;
+    @Email()
+    @NotBlank()
+    private String email;
 
     public UserDto() {
     }
@@ -72,11 +70,11 @@ public class UserDto {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 }
 
