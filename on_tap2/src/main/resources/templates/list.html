@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Title</title>
 </head>
 <body>
-$END$
+<h1>List Student</h1>
+<br>
+<a href="/student/createStudent">Add New Student</a>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Name Class</th>
+    </tr>
+    <tr th:each="student,studentStat : ${students}">
+        <td th:text="${student.idStudent}"></td>
+        <td th:text="${student.nameStudent}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.classStuden}"></td>
+        <td th:text="${student.classStuden.nameClass}"></td>
+    </tr>
+</table>
+<div>
+    <a th:if="${students.hasPrevious()}" th:href="@{/student(page=${students.number - 1})}">previous</a>
+    <span th:text="${students.number + 1}"></span> |
+    <span th:text="${students.totalPages}"></span>
+    <a th:if="${students.hasNext()}" th:href="@{/student(page=${students.number + 1})}">Next</a>
+</div>
+
+<div class="notify">
+    <div th:if="${SOS}">
+        <span th:text="${SOS}"></span>
+    </div>
+</div>
 </body>
 </html>

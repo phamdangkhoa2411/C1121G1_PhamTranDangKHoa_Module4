@@ -64,7 +64,7 @@ public class Blog {
         this.date = date;
     }
 
-    public Category getCategory() {
+        public Category getCategory() {
         return category;
     }
 

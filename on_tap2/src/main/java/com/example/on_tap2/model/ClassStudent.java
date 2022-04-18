@@ -11,18 +11,12 @@ public class ClassStudent {
     private Integer idClass;
     private String nameClass;
 
-    @OneToMany(mappedBy = "classStuden")
+    @OneToMany(mappedBy = "classStudent")
     private List<Student> studentList;
     public ClassStudent() {
     }
 
-    public List<Student> getStudentList() {
-        return studentList;
-    }
 
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
-    }
 
     public Integer getIdClass() {
         return idClass;
@@ -38,5 +32,12 @@ public class ClassStudent {
 
     public void setNameClass(String nameClass) {
         this.nameClass = nameClass;
+    }
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
     }
 }
