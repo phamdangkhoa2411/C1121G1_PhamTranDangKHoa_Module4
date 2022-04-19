@@ -60,4 +60,30 @@ public class BlogRestController {
         List<Blog> blogList = iBlogService.findBlogCategoryById(idCategory);
         return new  ResponseEntity<>(blogList,HttpStatus.OK);
     }
+
+    @PostMapping("/create")
+    public ResponseEntity<Void> createNewBlog(@RequestBody Blog blog) {
+        this.iBlogService.save(blog);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PatchMapping("/edit/{id}")
+    public ResponseEntity<Void> editBlog(@PathVariable Integer id, @RequestBody Blog blog) {
+        if (blog == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        this.iBlogService.save(blog);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteBlog(@PathVariable Integer id) {
+        if (iBlogService.findById(id) == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        this.iBlogService.deleteBlogById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 }
