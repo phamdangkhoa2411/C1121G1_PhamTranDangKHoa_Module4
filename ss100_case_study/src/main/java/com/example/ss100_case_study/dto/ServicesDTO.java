@@ -3,118 +3,112 @@ package com.example.ss100_case_study.dto;
 import com.example.ss100_case_study.model.employee.Division;
 import com.example.ss100_case_study.model.employee.EducationDegree;
 import com.example.ss100_case_study.model.employee.Position;
+import com.example.ss100_case_study.model.services.RentType;
+import com.example.ss100_case_study.model.services.ServicesType;
 
 import javax.persistence.*;
 
 public class ServicesDTO {
 
-    private Integer idEmployee;
+    private Integer idServices ;
+    private String nameServices ;
+    private  Integer areaServices ;
+    private String costService ;
+    private  Integer maxPeopleService ;
+    private  String standardRoomService;
+    private String descriptionOtherConvenience;
+    private String poolAreaService;
+    private Integer numberOfFloors ;
+    private RentType rentType ;
 
-    private String nameEmployee;
+    private ServicesType servicesType ;
 
-    private String birthdayEmployee;
-
-    private String idCardEmployee;
-
-    private String salaryEmployee;
-
-    private String phoneEmployee;
-
-    private String emailEmployee;
-
-    private String addressEmployee;
-
-    private Division division ;
-
-    private EducationDegree educationDegree ;
-
-    private Position position ;
-
-    public Integer getIdEmployee() {
-        return idEmployee;
+    public Integer getIdServices() {
+        return idServices;
     }
 
-    public void setIdEmployee(Integer idEmployee) {
-        this.idEmployee = idEmployee;
+    public void setIdServices(Integer idServices) {
+        this.idServices = idServices;
     }
 
-    public String getNameEmployee() {
-        return nameEmployee;
+    public String getNameServices() {
+        return nameServices;
     }
 
-    public void setNameEmployee(String nameEmployee) {
-        this.nameEmployee = nameEmployee;
+    public void setNameServices(String nameServices) {
+        this.nameServices = nameServices;
     }
 
-    public String getBirthdayEmployee() {
-        return birthdayEmployee;
+    public Integer getAreaServices() {
+        return areaServices;
     }
 
-    public void setBirthdayEmployee(String birthdayEmployee) {
-        this.birthdayEmployee = birthdayEmployee;
+    public void setAreaServices(Integer areaServices) {
+        this.areaServices = areaServices;
     }
 
-    public String getIdCardEmployee() {
-        return idCardEmployee;
+    public String getCostService() {
+        return costService;
     }
 
-    public void setIdCardEmployee(String idCardEmployee) {
-        this.idCardEmployee = idCardEmployee;
+    public void setCostService(String costService) {
+        this.costService = costService;
     }
 
-    public String getSalaryEmployee() {
-        return salaryEmployee;
+    public Integer getMaxPeopleService() {
+        return maxPeopleService;
     }
 
-    public void setSalaryEmployee(String salaryEmployee) {
-        this.salaryEmployee = salaryEmployee;
+    public void setMaxPeopleService(Integer maxPeopleService) {
+        this.maxPeopleService = maxPeopleService;
     }
 
-    public String getPhoneEmployee() {
-        return phoneEmployee;
+    public String getStandardRoomService() {
+        return standardRoomService;
     }
 
-    public void setPhoneEmployee(String phoneEmployee) {
-        this.phoneEmployee = phoneEmployee;
+    public void setStandardRoomService(String standardRoomService) {
+        this.standardRoomService = standardRoomService;
     }
 
-    public String getEmailEmployee() {
-        return emailEmployee;
+    public String getDescriptionOtherConvenience() {
+        return descriptionOtherConvenience;
     }
 
-    public void setEmailEmployee(String emailEmployee) {
-        this.emailEmployee = emailEmployee;
+    public void setDescriptionOtherConvenience(String descriptionOtherConvenience) {
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
     }
 
-    public String getAddressEmployee() {
-        return addressEmployee;
+    public String getPoolAreaService() {
+        return poolAreaService;
     }
 
-    public void setAddressEmployee(String addressEmployee) {
-        this.addressEmployee = addressEmployee;
+    public void setPoolAreaService(String poolAreaService) {
+        this.poolAreaService = poolAreaService;
     }
 
-    public Division getDivision() {
-        return division;
+    public Integer getNumberOfFloors() {
+        return numberOfFloors;
     }
 
-    public void setDivision(Division division) {
-        this.division = division;
+    public void setNumberOfFloors(Integer numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
     }
 
-    public EducationDegree getEducationDegree() {
-        return educationDegree;
+    public RentType getRentType() {
+        return rentType;
     }
 
-    public void setEducationDegree(EducationDegree educationDegree) {
-        this.educationDegree = educationDegree;
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
     }
 
-    public Position getPosition() {
-        return position;
+    public ServicesType getServicesType() {
+        return servicesType;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setServicesType(ServicesType servicesType) {
+        this.servicesType = servicesType;
     }
 }
+

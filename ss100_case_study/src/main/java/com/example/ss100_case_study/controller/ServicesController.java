@@ -31,20 +31,20 @@ public class ServicesController {
     }
     @GetMapping("/create/villa")
     public String showFormVilla(Model model) {
-        ServicesDTO ServicesDTO = new ServicesDTO();
-        model.addAttribute("ServicesDTO", ServicesDTO);
+        ServicesDTO servicesDTO = new ServicesDTO();
+        model.addAttribute("servicesDTO", servicesDTO);
         return "services/villa";
     }
     @GetMapping("/create/room")
     public String showFormRoom(Model model) {
-        ServicesDTO ServicesDTO = new ServicesDTO();
-        model.addAttribute("ServicesDTO", ServicesDTO);
+        ServicesDTO servicesDTO = new ServicesDTO();
+        model.addAttribute("servicesDTO", servicesDTO);
         return "services/room";
     }
     @GetMapping("/create/house")
     public String showFormHouse(Model model) {
-        ServicesDTO ServicesDTO = new ServicesDTO();
-        model.addAttribute("ServicesDTO", ServicesDTO);
+        ServicesDTO servicesDTO = new ServicesDTO();
+        model.addAttribute("servicesDTO", servicesDTO);
         return "services/house";
     }
 }
