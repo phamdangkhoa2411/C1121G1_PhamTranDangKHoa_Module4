@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:object="${customerDTO}" method="post">
+    <table>
+        <tr>
+            <th> Name Customer</th>
+            <td><input type="text" th:field="*{nameCustomer}"></td>
+            <td style="color: red" th:errors="*{nameCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> BirthdayCustomer</th>
+            <td><input type="date" th:field="*{birthdayCustomer}"></td>
+            <td style="color: red" th:errors="*{birthdayCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> Gender Customer</th>
+            <td>
+                <select th:field="*{genderCustomer}">
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Id Card Customer</th>
+            <td><input type="text" th:field="*{idCardCustomer}"></td>
+            <td style="color: red" th:errors="*{idCardCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> Phone Customer</th>
+            <td><input type="text" th:field="*{phoneCustomer}"></td>
+            <td style="color: red" th:errors="*{phoneCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> Email Customer</th>
+            <td><input type="text" th:field="*{emailCustomer}"></td>
+            <td style="color: red" th:errors="*{emailCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> Address Customer</th>
+            <td><input type="text" th:field="*{addressCustomer}"></td>
+            <td style="color: red" th:errors="*{addressCustomer}"></td>
+        </tr>
+
+        <tr>
+            <th> Name Customer Type</th>
+            <td>
+                <select th:field="*{customerType.idCustomerType}">
+                    <option value="1">Diamond</option>
+                    <option value="2">Platinium</option>
+                    <option value="3">Gold</option>
+                    <option value="4">Silver</option>
+                    <option value="5">Member</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+
+            <td><input type="submit" value="Add Customer"> </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
