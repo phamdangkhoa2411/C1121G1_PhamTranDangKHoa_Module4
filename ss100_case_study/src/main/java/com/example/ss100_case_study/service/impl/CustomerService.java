@@ -1,9 +1,9 @@
 package com.example.ss100_case_study.service.impl;
 
-import com.example.ss100_case_study.model.Customer;
-import com.example.ss100_case_study.model.CustomerType;
-import com.example.ss100_case_study.repository.ICustomerRepository;
-import com.example.ss100_case_study.repository.ICustomerTypeRepository;
+import com.example.ss100_case_study.model.customer.Customer;
+import com.example.ss100_case_study.model.customer.CustomerType;
+import com.example.ss100_case_study.repository.customer.ICustomerRepository;
+import com.example.ss100_case_study.repository.customer.ICustomerTypeRepository;
 import com.example.ss100_case_study.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

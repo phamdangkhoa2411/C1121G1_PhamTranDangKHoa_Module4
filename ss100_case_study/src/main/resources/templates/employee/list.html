@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body>
+<h1>Employee List</h1>
+<br>
+<div class="btn-group">
+    <a href="employees/create" class="btn btn-primary active" aria-current="page">Add New Customer</a>
+</div>
+<table class="table table-striped">
+    <tr >
+        <th scope="col">id Employee</th>
+        <th scope="col">Name Employee</th>
+        <th scope="col">Birthday Employee</th>
+        <th scope="col">Id Card Employee</th>
+        <th scope="col">salasalary Employee</th>
+        <th scope="col">Phone Employee</th>
+        <th scope="col">Email Employee</th>
+        <th scope="col">Addres Employee</th>
+        <th scope="col">Division</th>
+        <th scope="col">Education Degree</th>
+        <th scope="col">Position</th>
+        <th scope="col">Edit And Delete</th>
+    </tr>
+    <tr th:each="employee : ${employeePage}">
+        <td class="table-primary"th:text="${employee.idEmployee}"></td>
+        <td th:text="${employee.nameEmployee}"></td>
+        <td class="table-primary"th:text="${employee.birthdayEmployee}"></td>
+        <td th:text="${employee.idCardEmployee}"></td>
+        <td class="table-primary"th:text="${employee.salaryEmployee}"></td>
+        <td th:text="${employee.phoneEmployee}"></td>
+        <td class="table-primary"th:text="${employee.emailEmployee}"></td>
+        <td th:text="${employee.addressEmployee}"></td>
+        <td class="table-primary"th:text="${employee.division.nameDivision}"></td>
+        <td th:text="${employee.educationDegree.nameEducationDegree}"></td>
+        <td class="table-primary"th:text="${employee.position.namePosition}"></td>
+
+
+        <td>
+            <a class="btn btn-primary" th:href="@{/employees/edit/{id}(id=${employee.idEmployee})}">Edit</a>
+            <a class="btn btn-primary" th:href="@{/employees/delete/{id}(id=${employee.idEmployee})}">Delete</a>
+        </td>
+
+    </tr>
+</table>
+<div>
+    <a th:if="${employeePage.hasPrevious()}" th:href="@{/employees(page=${employeePage.number - 1})}">previous</a>
+    <span th:text="${employeePage.number + 1}"></span> |
+    <span th:text="${employeePage.totalPages}"></span>
+    <a th:if="${employeePage.hasNext()}" th:href="@{/employees(page=${employeePage.number + 1})}">Next</a>
+</div>
+
+<a class="btn btn-primary" href="/furama">Back To Home</a>
+
+</body>
+<div class="notify">
+    <div th:if="${SOS}">
+        <span th:text="${SOS}"></span>
+    </div>
+</div>
+
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</html>

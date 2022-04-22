@@ -2,8 +2,8 @@ package com.example.ss100_case_study.controller;
 
 
 import com.example.ss100_case_study.dto.CustomerDTO;
-import com.example.ss100_case_study.model.Customer;
-import com.example.ss100_case_study.model.CustomerType;
+import com.example.ss100_case_study.model.customer.Customer;
+import com.example.ss100_case_study.model.customer.CustomerType;
 import com.example.ss100_case_study.service.ICustomerService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,7 +75,8 @@ public class CustomerController {
     }
 
     @PostMapping("/edit/{id}")
-    public String editCustomer(@PathVariable Integer id, @Validated @ModelAttribute CustomerDTO customerDTO, Model model, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String editCustomer(@PathVariable Integer id, @Validated @ModelAttribute CustomerDTO customerDTO, BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes, Model model) {
 
         if (bindingResult.hasFieldErrors()) {
             List<CustomerType> customerTypes = this.iCustomerService.findAllCustomerType();
@@ -84,10 +85,39 @@ public class CustomerController {
         }
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDTO, customer);
+        customer.setIdCustomer(id);
         this.iCustomerService.save(customer);
-        redirectAttributes.addFlashAttribute("message", "Edit Success !");
-        return "redirect:/customer";
+        redirectAttributes.addFlashAttribute("SOS", "edit thành công!");
+        return "redirect:/customers";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteForm(@PathVariable Integer id ,Model model){
+        Customer customer = this.iCustomerService.findById(id);
+        if (customer == null) {
+            return "error.404";
+        }
+        CustomerDTO customerDTO = new CustomerDTO();
+        BeanUtils.copyProperties(customer, customerDTO);
+
+        List<CustomerType> customerTypes = this.iCustomerService.findAllCustomerType();
+        model.addAttribute("customerDTO", customerDTO);
+        model.addAttribute("customerTypes", customerTypes);
+        return "/customer/delete";
+    }
+    @PostMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable Integer id, @Validated @ModelAttribute CustomerDTO customerDTO, BindingResult bindingResult,
+                                 RedirectAttributes redirectAttributes, Model model) {
+        Customer customer = new Customer();
+        BeanUtils.copyProperties(customerDTO, customer);
+        customer.setIdCustomer(id);
+        this.iCustomerService.deleteById(id);
+        redirectAttributes.addFlashAttribute("SOS", "delete thành công!");
+        return "redirect:/customers";
+
+    }
+
+
+
 
 
 }

@@ -1,8 +1,7 @@
 package com.example.ss100_case_study.dto;
 
-import com.example.ss100_case_study.model.CustomerType;
+import com.example.ss100_case_study.model.customer.CustomerType;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -24,7 +23,7 @@ public class CustomerDTO {
     private String idCardCustomer;
 
     @NotBlank
-   @Pattern(regexp = "^/(((\\+|)84)|0)(3|5|7|8|9)+([0-9]{8})\\b/$", message = "ví dụ +84981234567, 84981234567 ,0981234567")
+    @Pattern(regexp ="((09|03|07|08|05)+([0-9]{8})\\b)", message = "ví dụ 0981234567")
     private String phoneCustomer;
 
     @NotBlank
@@ -34,7 +33,9 @@ public class CustomerDTO {
     @NotBlank
     private String addressCustomer;
 
-  private CustomerType customerType;
+    private CustomerType customerType;
+
+
     public CustomerDTO() {
     }
 

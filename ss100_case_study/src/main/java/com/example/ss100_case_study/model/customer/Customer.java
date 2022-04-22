@@ -1,4 +1,4 @@
-package com.example.ss100_case_study.model;
+package com.example.ss100_case_study.model.customer;
 
 import javax.persistence.*;
 

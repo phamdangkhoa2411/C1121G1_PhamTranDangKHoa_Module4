@@ -1,7 +1,7 @@
 package com.example.ss100_case_study.service;
 
-import com.example.ss100_case_study.model.Customer;
-import com.example.ss100_case_study.model.CustomerType;
+import com.example.ss100_case_study.model.customer.Customer;
+import com.example.ss100_case_study.model.customer.CustomerType;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
