@@ -1,5 +1,7 @@
 package com.example.ss100_case_study.controller;
 
+import com.example.ss100_case_study.dto.CustomerDTO;
+import com.example.ss100_case_study.dto.ServicesDTO;
 import com.example.ss100_case_study.model.customer.Customer;
 import com.example.ss100_case_study.model.services.Services;
 import com.example.ss100_case_study.service.IServicesService;
@@ -26,5 +28,23 @@ public class ServicesController {
         model.addAttribute("servicesPage", servicesPage);
         return "services/list";
 
+    }
+    @GetMapping("/create/villa")
+    public String showFormVilla(Model model) {
+        ServicesDTO ServicesDTO = new ServicesDTO();
+        model.addAttribute("ServicesDTO", ServicesDTO);
+        return "services/villa";
+    }
+    @GetMapping("/create/room")
+    public String showFormRoom(Model model) {
+        ServicesDTO ServicesDTO = new ServicesDTO();
+        model.addAttribute("ServicesDTO", ServicesDTO);
+        return "services/room";
+    }
+    @GetMapping("/create/house")
+    public String showFormHouse(Model model) {
+        ServicesDTO ServicesDTO = new ServicesDTO();
+        model.addAttribute("ServicesDTO", ServicesDTO);
+        return "services/house";
     }
 }

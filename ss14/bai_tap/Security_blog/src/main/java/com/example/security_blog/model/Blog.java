@@ -8,39 +8,40 @@ public class Blog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String writer;
-    private String content;
+    private Long id;
+    private String title;
+    private String body;
     private String summary;
-    private String date ;
-    private String category ;
+    private Long time;
+    @ManyToOne
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private Category category;
 
     public Blog() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getWriter() {
-        return writer;
+    public String getTitle() {
+        return title;
     }
 
-    public void setWriter(String writer) {
-        this.writer = writer;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getBody() {
+        return body;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public String getSummary() {
@@ -51,19 +52,19 @@ public class Blog {
         this.summary = summary;
     }
 
-    public String getDate() {
-        return date;
+    public Long getTime() {
+        return time;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setTime(Long time) {
+        this.time = time;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 }
