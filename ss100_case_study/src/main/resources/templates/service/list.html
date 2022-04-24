@@ -9,10 +9,12 @@
 </head>
 
 <body>
-<h1>Customer List</h1>
+<h1>Services List</h1>
 <br>
 <div class="btn-group">
-    <a href="customers/create" class="btn btn-primary active" aria-current="page">Add New Customer</a>
+    <a href="services/create/villa" class="btn btn-primary active" aria-current="page">Add New Villa</a>
+    <a href="services/create/room" class="btn btn-danger active" aria-current="page">Add New Room</a>
+    <a href="services/create/house" class="btn btn-warning active" aria-current="page">Add New House</a>
 </div>
 <table class="table table-striped">
     <tr >
@@ -27,25 +29,20 @@
         <th scope="col">number Of Floors</th>
         <th scope="col">rent Type</th>
         <th scope="col">services Type</th>
-        <th scope="col">Edit And Delete</th>
     </tr>
     <tr th:each="services : ${servicesPage}">
         <td class="table-primary"th:text="${services.idServices}"></td>
-        <td class="table-primary"th:text="${services.nameServices}"></td>
+        <td th:text="${services.nameServices}"></td>
         <td class="table-primary"th:text="${services.areaServices}"></td>
-        <td class="table-primary"th:text="${services.costService}"></td>
+        <td th:text="${services.costService}"></td>
         <td class="table-primary"th:text="${services.maxPeopleService}"></td>
-        <td class="table-primary"th:text="${services.standardRoomService}"></td>
+        <td th:text="${services.standardRoomService}"></td>
         <td class="table-primary"th:text="${services.descriptionOtherConvenience}"></td>
-        <td class="table-primary"th:text="${services.poolAreaService}"></td>
+        <td th:text="${services.poolAreaService}"></td>
         <td class="table-primary"th:text="${services.numberOfFloors}"></td>
-        <td class="table-primary"th:text="${services.rentType}"></td>
-        <td class="table-primary"th:text="${services.servicesType}"></td>
+        <td th:text="${services.rentType.nameRentType}"></td>
+        <td class="table-primary"th:text="${services.servicesType.nameServiceType}"></td>
 
-        <td>
-<!--            <a class="btn btn-primary" th:href="@{/customers/edit/{id}(id=${customer.idCustomer})}">Edit</a>-->
-<!--            <a class="btn btn-primary" th:href="@{/customers/delete/{id}(id=${customer.idCustomer})}">Delete</a>-->
-        </td>
 
     </tr>
 </table>

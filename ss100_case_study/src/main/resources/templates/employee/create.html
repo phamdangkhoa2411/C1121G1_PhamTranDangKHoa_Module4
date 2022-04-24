@@ -11,7 +11,7 @@
 
 <form th:object="${employeeDTO}" method="post">
     <table class="table">
-        <tr class="table table-striped">
+        <tr >
             <th> Name Employee</th>
             <td><input type="text" th:field="*{nameEmployee}"></td>
             <td style="color: red" th:errors="*{nameEmployee}"></td>
@@ -93,7 +93,7 @@
             <td><input type="submit" value="Add Customer"  class="btn btn-primary"></td>
         </tr>
     </table>
-    <a href="/customers" class="btn btn-primary active" aria-current="page">Back to list Customer</a>
+    <a href="/employees" class="btn btn-primary active" aria-current="page">Back to list Employees</a>
 
 </form>
 </body>

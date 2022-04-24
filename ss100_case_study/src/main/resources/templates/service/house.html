@@ -11,15 +11,15 @@
 
 <form th:object="${servicesDTO}" method="post">
     <table class="table">
-        <tr class="table table-striped">
+        <tr >
             <th> Name Service</th>
             <td><input type="text" th:field="*{nameServices}"></td>
-            <td style="color: red" th:errors="*{}"></td>
+            <td style="color: red" th:errors="*{nameServices}"></td>
         </tr>
 
         <tr>
             <th> area Services </th>
-            <td><input type="date" th:field="*{areaServices}"></td>
+            <td><input type="text" th:field="*{areaServices}"></td>
             <td style="color: red" th:errors="*{areaServices}"></td>
         </tr>
 
@@ -60,10 +60,10 @@
         <tr>
             <th>rentType </th>
             <td>
-                <select th:field="*{rentType}">
+                <select th:field="*{rentType.idRentType}">
                     <option value="1">year</option>
                     <option value="2">month</option>
-                    <option value="3"> day</option>
+                    <option value="3">day</option>
                     <option value="4">hour</option>
                 </select>
             </td>
@@ -73,7 +73,7 @@
             <th> servicesType </th>
             <td>
                 <select th:field="*{servicesType}">
-                    <option value="1"> house </option>
+                    <option value="2"> house </option>
 
                 </select>
             </td>
@@ -82,10 +82,10 @@
 
         <tr>
 
-            <td><input type="submit" value="Add Customer"  class="btn btn-primary"></td>
+            <td><input type="submit" value="Add services"  class="btn btn-primary"></td>
         </tr>
     </table>
-    <a href="/customers" class="btn btn-primary active" aria-current="page">Back to list Customer</a>
+    <a href="/services" class="btn btn-primary active" aria-current="page">Back to list services</a>
 
 </form>
 </body>

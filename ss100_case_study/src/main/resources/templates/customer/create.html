@@ -11,7 +11,7 @@
 <body>
 <form th:object="${customerDTO}" method="post">
     <table class="table">
-        <tr class="table table-striped">
+        <tr >
             <th> Name Customer</th>
             <td><input type="text" th:field="*{nameCustomer}"></td>
             <td style="color: red" th:errors="*{nameCustomer}"></td>

@@ -7,9 +7,11 @@ import com.example.ss100_case_study.model.services.RentType;
 import com.example.ss100_case_study.model.services.ServicesType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 public class ServicesDTO {
 
+    @NotBlank
     private Integer idServices ;
     private String nameServices ;
     private  Integer areaServices ;

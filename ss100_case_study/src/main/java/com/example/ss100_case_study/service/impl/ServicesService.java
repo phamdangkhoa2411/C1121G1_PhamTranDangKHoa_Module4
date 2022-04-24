@@ -16,4 +16,9 @@ public class ServicesService implements IServicesService {
     public Page<Services> findAll(Pageable pageable) {
         return iServicesRepository.findAll(pageable);
     }
+
+    @Override
+    public void save(Services services) {
+        iServicesRepository.save(services) ;
+    }
 }
