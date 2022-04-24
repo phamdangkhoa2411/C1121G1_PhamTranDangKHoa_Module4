@@ -2,7 +2,7 @@ package com.example.ss100_case_study.controller;
 
 import com.example.ss100_case_study.dto.ContractDTO;
 
-import com.example.ss100_case_study.dto.CustomerDTO;
+
 import com.example.ss100_case_study.model.contract.Contract;
 
 import com.example.ss100_case_study.model.customer.Customer;
@@ -30,13 +30,13 @@ import java.util.List;
 @Controller
 public class ContractController {
     @Autowired
-    IContractService icontractService ;
+    IContractService iContractService;
 
     @GetMapping("")
     public String list(Model model, @PageableDefault(value = 5) Pageable pageable) {
 
         Page<Contract> contractPage;
-        contractPage = icontractService.findAll(pageable);
+        contractPage = iContractService.findAll(pageable);
         model.addAttribute("contractPage", contractPage);
         return "contract/list";
 
@@ -45,9 +45,9 @@ public class ContractController {
     @GetMapping("/create")
     public String showForm(Model model) {
         ContractDTO contractDTO = new ContractDTO();
-        List<Employee> employeeList = icontractService.findAllEmployee();
-        List<Customer> customerList = icontractService.findAllCustomer();
-        List<Services> servicesList = icontractService.findAllServices();
+        List<Employee> employeeList = iContractService.findAllEmployee();
+        List<Customer> customerList = iContractService.findAllCustomer();
+        List<Services> servicesList = iContractService.findAllServices();
         model.addAttribute("contractDTO", contractDTO);
         model.addAttribute("employeeList", employeeList);
         model.addAttribute("customerList", customerList);
@@ -63,7 +63,7 @@ public class ContractController {
         } else {
             Contract contract = new Contract();
             BeanUtils.copyProperties(contractDTO, contract);
-            icontractService.save(contract);
+            iContractService.save(contract);
             redirectAttributes.addFlashAttribute("SOS", "thêm mới thành công");
             return "redirect:/contracts";
         }
