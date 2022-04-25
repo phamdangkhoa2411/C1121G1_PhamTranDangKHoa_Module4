@@ -20,6 +20,10 @@ public class ContractDetail {
     @JoinColumn(name = "idContract",referencedColumnName ="idContract" )
     private Contract contract ;
 
+    @ManyToOne
+    @JoinColumn(name = "id_attach_services",referencedColumnName = "idAttachServices")
+    private AttachServices attachServices ;
+
     public ContractDetail() {
     }
 }

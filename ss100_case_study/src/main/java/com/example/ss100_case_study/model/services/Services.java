@@ -10,7 +10,7 @@ public class Services {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idServices ;
     private String nameServices ;
-    private  Integer areaServices ;
+    private  String areaServices ;
     @Column(columnDefinition = "double")
     private String costService ;
     private  Integer maxPeopleService ;
@@ -47,11 +47,11 @@ public class Services {
         this.nameServices = nameServices;
     }
 
-    public Integer getAreaServices() {
+    public String getAreaServices() {
         return areaServices;
     }
 
-    public void setAreaServices(Integer areaServices) {
+    public void setAreaServices(String areaServices) {
         this.areaServices = areaServices;
     }
 

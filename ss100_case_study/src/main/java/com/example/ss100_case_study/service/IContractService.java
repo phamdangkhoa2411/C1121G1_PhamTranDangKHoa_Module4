@@ -20,4 +20,6 @@ public interface IContractService {
 
     void save(Contract contract);
 
+    Contract findById(Integer id);
+
 }

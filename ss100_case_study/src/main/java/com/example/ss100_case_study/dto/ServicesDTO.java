@@ -7,23 +7,44 @@ import com.example.ss100_case_study.model.services.RentType;
 import com.example.ss100_case_study.model.services.ServicesType;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class ServicesDTO {
 
-    @NotBlank
-    private Integer idServices ;
-    private String nameServices ;
-    private  Integer areaServices ;
-    private String costService ;
-    private  Integer maxPeopleService ;
-    private  String standardRoomService;
-    private String descriptionOtherConvenience;
-    private String poolAreaService;
-    private Integer numberOfFloors ;
-    private RentType rentType ;
 
-    private ServicesType servicesType ;
+    private Integer idServices;
+
+    @NotBlank
+    @Size(min = 1, max = 45)
+    private String nameServices;
+
+
+    private String areaServices;
+
+    @NotBlank
+    private String costService;
+
+    @Min(value = 2,message = "ít nhất là 2 người")
+    @Max(value = 15,message = "tối đa chỉ được 15 người")
+    private Integer maxPeopleService;
+
+
+    private String standardRoomService;
+
+
+    private String descriptionOtherConvenience;
+
+
+    private String poolAreaService;
+
+    private Integer numberOfFloors;
+
+    private RentType rentType;
+
+    private ServicesType servicesType;
 
     public Integer getIdServices() {
         return idServices;
@@ -41,11 +62,11 @@ public class ServicesDTO {
         this.nameServices = nameServices;
     }
 
-    public Integer getAreaServices() {
+    public String getAreaServices() {
         return areaServices;
     }
 
-    public void setAreaServices(Integer areaServices) {
+    public void setAreaServices(String areaServices) {
         this.areaServices = areaServices;
     }
 

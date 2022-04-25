@@ -13,6 +13,7 @@
 <br>
 <div class="btn-group">
     <a href="contracts/create" class="btn btn-primary active" aria-current="page">Add New Contract</a>
+    <a href="contractDetails" class="btn btn-danger active" aria-current="page">Contract detail</a>
 </div>
 <table class="table table-striped">
     <tr>
@@ -27,7 +28,9 @@
 
     </tr>
     <tr th:each="contract : ${contractPage}">
-        <td class="table-primary"th:text="${contract.idContract}"></td>
+        <td class="table-primary">
+            <a th:href="@{contracts/__${contract.idContract}__/view}" th:text="${contract.idContract}"></a>
+        </td>
         <td class="table-primary"th:text="${contract.startDate}"></td>
         <td class="table-primary"th:text="${contract.endDate}"></td>
         <td class="table-primary"th:text="${contract.deposit}"></td>

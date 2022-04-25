@@ -90,6 +90,7 @@ public class ServicesController {
             return "service/room";
         } else {
             Services services = new Services();
+
             BeanUtils.copyProperties(servicesDTO, services);
             iServicesService.save(services);
             redirectAttributes.addFlashAttribute("SOS", "thêm mới thành công");

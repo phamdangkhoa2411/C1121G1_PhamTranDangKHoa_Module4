@@ -22,6 +22,7 @@ public class ContractDTO {
     private Double deposit ;
 
     private Double totalMoney ;
+
     private Services services ;
     private Employee employee ;
     private Customer customer ;
