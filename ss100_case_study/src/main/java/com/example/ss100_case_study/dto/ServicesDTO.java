@@ -7,10 +7,7 @@ import com.example.ss100_case_study.model.services.RentType;
 import com.example.ss100_case_study.model.services.ServicesType;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class ServicesDTO {
 
@@ -21,25 +18,27 @@ public class ServicesDTO {
     @Size(min = 1, max = 45)
     private String nameServices;
 
-
+    @Pattern(regexp = "^[0-9]+$", message = "nhập diện tích chổ ở")
     private String areaServices;
 
-    @NotBlank
+    @NotBlank(message = "nhập tiền dịch vụ")
     private String costService;
 
-    @Min(value = 2,message = "ít nhất là 2 người")
-    @Max(value = 15,message = "tối đa chỉ được 15 người")
+    @Min(value = 2, message = "ít nhất là 2 người")
+    @Max(value = 15, message = "tối đa chỉ được 15 người")
     private Integer maxPeopleService;
 
 
     private String standardRoomService;
 
-
+    @NotBlank(message = "nhập mô tả cho khách")
     private String descriptionOtherConvenience;
 
-
+    @Pattern(regexp = "^[0-9]+$", message = "nhập diện tích hồ bơi")
     private String poolAreaService;
 
+    @Min(value = 2, message = "đồ ngốc dưới 2 tầng thì làm gì có tầng")
+    @Max(value = 5, message = "cao quá không phải nhà để ở hiểu chưa")
     private Integer numberOfFloors;
 
     private RentType rentType;
