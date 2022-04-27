@@ -1,6 +1,8 @@
 package com.example.ss100_case_study.service;
 
 import com.example.ss100_case_study.model.contract.Contract;
+import com.example.ss100_case_study.model.contract.ISumTotalMoney;
+import com.example.ss100_case_study.model.contract.SumTotalMoneyClass;
 import com.example.ss100_case_study.model.customer.Customer;
 import com.example.ss100_case_study.model.employee.Employee;
 import com.example.ss100_case_study.model.services.Services;
@@ -21,5 +23,7 @@ public interface IContractService {
     void save(Contract contract);
 
     Contract findById(Integer id);
+
+    List<SumTotalMoneyClass> totalMoney();
 
 }

@@ -2,8 +2,10 @@ package com.example.ss100_case_study.controller;
 
 
 import com.example.ss100_case_study.dto.CustomerDTO;
+import com.example.ss100_case_study.model.contract.Contract;
 import com.example.ss100_case_study.model.customer.Customer;
 import com.example.ss100_case_study.model.customer.CustomerType;
+import com.example.ss100_case_study.service.IContractService;
 import com.example.ss100_case_study.service.ICustomerService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("customers")
 @Controller
@@ -26,12 +29,18 @@ public class CustomerController {
     @Autowired
     ICustomerService iCustomerService;
 
+    @Autowired
+    IContractService iContractService;
+
 
     @GetMapping("")
-    public String list(Model model, @PageableDefault(value = 5) Pageable pageable) {
-
+    public String list(@RequestParam Optional<String> keyword, Model model, @PageableDefault(value = 5) Pageable pageable) {
         Page<Customer> customerPage;
-        customerPage = iCustomerService.findAll(pageable);
+        if (keyword.isPresent()) {
+            customerPage = iCustomerService.findByName(keyword.get(), pageable);
+        } else {
+            customerPage = iCustomerService.findAll(pageable);
+        }
         model.addAttribute("customerPage", customerPage);
         return "customer/list";
 
@@ -63,7 +72,7 @@ public class CustomerController {
     public String editForm(@PathVariable Integer id, Model model) {
         Customer customer = this.iCustomerService.findById(id);
         if (customer == null) {
-            return "error.404";
+            return "error";
         }
         CustomerDTO customerDTO = new CustomerDTO();
         BeanUtils.copyProperties(customer, customerDTO);
@@ -90,11 +99,12 @@ public class CustomerController {
         redirectAttributes.addFlashAttribute("SOS", "edit thành công!");
         return "redirect:/customers";
     }
+
     @GetMapping("/delete/{id}")
-    public String deleteForm(@PathVariable Integer id ,Model model){
+    public String deleteForm(@PathVariable Integer id, Model model) {
         Customer customer = this.iCustomerService.findById(id);
         if (customer == null) {
-            return "error.404";
+            return "error";
         }
         CustomerDTO customerDTO = new CustomerDTO();
         BeanUtils.copyProperties(customer, customerDTO);
@@ -104,6 +114,7 @@ public class CustomerController {
         model.addAttribute("customerTypes", customerTypes);
         return "/customer/delete";
     }
+
     @PostMapping("/delete/{id}")
     public String deleteCustomer(@PathVariable Integer id, @Validated @ModelAttribute CustomerDTO customerDTO, BindingResult bindingResult,
                                  RedirectAttributes redirectAttributes, Model model) {
@@ -116,8 +127,13 @@ public class CustomerController {
 
     }
 
-
-
+    @GetMapping("/customerService")
+    public String customerService(Model model, @PageableDefault(value = 5) Pageable pageable) {
+        Page<Contract> contractList;
+        contractList = iContractService.findAll(pageable);
+        model.addAttribute("contractList", contractList);
+    return "/customer/customerService";
+    }
 
 
 }

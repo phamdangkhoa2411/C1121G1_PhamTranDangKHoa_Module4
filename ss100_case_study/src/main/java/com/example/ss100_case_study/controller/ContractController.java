@@ -5,6 +5,8 @@ import com.example.ss100_case_study.dto.ContractDTO;
 
 import com.example.ss100_case_study.model.contract.Contract;
 
+import com.example.ss100_case_study.model.contract.ISumTotalMoney;
+import com.example.ss100_case_study.model.contract.SumTotalMoneyClass;
 import com.example.ss100_case_study.model.customer.Customer;
 import com.example.ss100_case_study.model.employee.Employee;
 import com.example.ss100_case_study.model.services.Services;
@@ -23,7 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping("contracts")
+@RequestMapping("/contracts")
 @Controller
 public class ContractController {
     @Autowired
@@ -71,6 +73,11 @@ public class ContractController {
     public String view(@PathVariable Integer id, Model model) {
         model.addAttribute("contracts", iContractService.findById(id));
         return "contract/view";
+    }
 
+    @GetMapping("/listTotal")
+    public String total(){
+        List<SumTotalMoneyClass> sumTotalMoneyList = iContractService.totalMoney();
+        return "contract/total";
     }
 }

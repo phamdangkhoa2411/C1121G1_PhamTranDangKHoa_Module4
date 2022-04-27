@@ -7,7 +7,7 @@ import com.example.ss100_case_study.model.services.Services;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
+
 import javax.validation.constraints.NotNull;
 
 @Setter
@@ -19,7 +19,7 @@ public class ContractDTO {
     private String startDate;
 
     private String endDate;
-    @NotNull
+    @NotNull(message = "không được bỏ trống")
     private Double deposit;
 
     private Double totalMoney;

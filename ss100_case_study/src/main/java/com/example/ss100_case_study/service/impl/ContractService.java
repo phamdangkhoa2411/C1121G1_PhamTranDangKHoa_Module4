@@ -1,6 +1,8 @@
 package com.example.ss100_case_study.service.impl;
 
 import com.example.ss100_case_study.model.contract.Contract;
+import com.example.ss100_case_study.model.contract.ISumTotalMoney;
+import com.example.ss100_case_study.model.contract.SumTotalMoneyClass;
 import com.example.ss100_case_study.model.customer.Customer;
 import com.example.ss100_case_study.model.employee.Employee;
 import com.example.ss100_case_study.model.services.Services;
@@ -14,12 +16,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ContractService implements IContractService {
     @Autowired
-    IServicesRepository iServicesRepository ;
+    IServicesRepository iServicesRepository;
 
     @Autowired
     IContractRepository iContractRepository;
@@ -58,5 +61,25 @@ public class ContractService implements IContractService {
     @Override
     public Contract findById(Integer id) {
         return iContractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<SumTotalMoneyClass> totalMoney() {
+        List<ISumTotalMoney> list = iContractRepository.findAllSumTotal(ISumTotalMoney.class);
+        List<SumTotalMoneyClass> totalMoney = new ArrayList<>();
+        for (ISumTotalMoney ls : list) {
+            Double deposit = ls.getDeposit();
+
+            Double costService = ls.getCostService();
+
+            Double contractQuantity = ls.getContractQuantity();
+
+            Double costAttachService = ls.getCostAttachService();
+
+            SumTotalMoneyClass obj = new SumTotalMoneyClass(deposit, costService, contractQuantity, costAttachService, 0.0);
+            obj.setTotal(obj.calculate());
+            totalMoney.add(obj);
+        }
+        return totalMoney;
     }
 }

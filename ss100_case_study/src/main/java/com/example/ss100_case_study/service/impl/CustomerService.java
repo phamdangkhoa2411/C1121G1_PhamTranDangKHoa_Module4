@@ -46,4 +46,9 @@ public class CustomerService implements ICustomerService {
         iCustomerRepository.deleteById(idDelete);
     }
 
+    @Override
+    public Page<Customer> findByName(String keyword, Pageable pageable) {
+        return iCustomerRepository.findAllByNameCustomerContaining(keyword,pageable) ;
+    }
+
 }

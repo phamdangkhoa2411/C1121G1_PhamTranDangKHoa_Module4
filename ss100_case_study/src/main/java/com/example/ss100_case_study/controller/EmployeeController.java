@@ -1,10 +1,7 @@
 package com.example.ss100_case_study.controller;
 
 
-import com.example.ss100_case_study.dto.CustomerDTO;
 import com.example.ss100_case_study.dto.EmployeeDTO;
-import com.example.ss100_case_study.model.customer.Customer;
-import com.example.ss100_case_study.model.customer.CustomerType;
 import com.example.ss100_case_study.model.employee.Division;
 import com.example.ss100_case_study.model.employee.EducationDegree;
 import com.example.ss100_case_study.model.employee.Employee;
@@ -65,7 +62,7 @@ public class EmployeeController {
     public String editForm(@PathVariable Integer id, Model model) {
         Employee employee = this.iEmployeeService.findById(id);
         if (employee == null) {
-            return "error.404";
+            return "error";
         }
         EmployeeDTO employeeDTO = new EmployeeDTO();
 
@@ -108,7 +105,7 @@ public class EmployeeController {
     public String deleteForm(@PathVariable Integer id, Model model) {
         Employee employee = this.iEmployeeService.findById(id);
         if (employee == null) {
-            return "error.404";
+            return "error";
         }
         EmployeeDTO employeeDTO = new EmployeeDTO();
 
